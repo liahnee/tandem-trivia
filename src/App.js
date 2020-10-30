@@ -18,25 +18,30 @@ function App() {
 	const [ showAnswerButton, setShowAnswerButton ] = useState(false);
 	const [ revealAnswer, setRevealAnswer ] = useState(false);
 
-	const [ questionCount, setQuestionCount ] = useState(0);
+  const [ questionCount, setQuestionCount ] = useState(0);
+  
 
 	useEffect(() => {
 		createQuestionList();
-	}, []);
-
+  }, []);
+  
 	const createQuestionList = () => {
+    setQuestionList(null);
 		const max = allQuestions.length - 1;
 		const tempIdx = [];
 		const tempList = [];
 		let count = 0;
-		while (count <= 10) {
+		while (count < 10) {
 			let num = randomInt(max);
 			if (tempIdx.includes(num)) {
 				continue;
 			} else {
 				tempIdx.push(num);
+
 				const newQ = allQuestions[num];
 				newQ.selectedAnswer = null;
+        newQ.allChoices = [...newQ.incorrect];
+        newQ.allChoices.splice(randomInt(4), 0, newQ.correct);
 				tempList.push(newQ);
 				count++;
 			}
@@ -50,11 +55,13 @@ function App() {
 		setQuestion(pulledQuestion.question);
 		setAnswer(pulledQuestion.correct);
 
-		const randAnswerChoices = pulledQuestion.incorrect;
-		randAnswerChoices.splice(randomInt(4), 0, pulledQuestion.correct);
-		setAnswerChoices(randAnswerChoices);
+		// const randAnswerChoices = pulledQuestion.incorrect;
+		// randAnswerChoices.splice(randomInt(4), 0, pulledQuestion.correct);
+    // setAnswerChoices(randAnswerChoices);
+    
+		setAnswerChoices(pulledQuestion.allChoices);
 
-		setQuestionCount(questionCount + 1);
+		countQuestion();
 		return;
 	};
 
@@ -83,17 +90,22 @@ function App() {
 			setSelectedAnswer(choice);
 		}
 		return;
-	};
+  };
+  
+  const countQuestion = () => {
+    setQuestionCount(questionCount + 1 )
+    return;
+  }
 
 	const reset = () => {
+    createQuestionList();
 		setQuestionCount(0);
-		setQuestionList([ ...allQuestions ]);
 		setQuestion(null);
 		setAnswerChoices(new Array());
 		setAnswer(null);
 		setScore(0);
 		setSelectedAnswer(null);
-		setShowAnswerButton(true);
+		setShowAnswerButton(false);
 		setRevealAnswer(false);
 
 		return;
@@ -107,7 +119,11 @@ function App() {
 					{showAnswerButton ? (
 						<button onClick={showAnswer}>Confirm</button>
 					) : (
-						<button onClick={nextQuestion}> Next Question</button>
+            <div> 
+              {questionCount == 10 ? (<button onClick={countQuestion}>Complete</button>) : (
+						<button onClick={nextQuestion}> Next Question</button> )}
+
+            </div>
 					)}
 					<div className="question-container">
 						<Question text={question} count={questionCount} />
@@ -129,6 +145,25 @@ function App() {
 				<div>
 					You have completed 10 questions. Youre score is {score}/10.
 					<button onClick={reset}>New Round</button>
+					Review answers:
+          {console.log(questionList)}
+					{questionList.map((question, idx) => (
+						<div className="question-container" key={idx}>
+							<Question text={question.question} count={idx + 1} />
+							<div className="answers-container">
+								{question.allChoices.map((choice, i) => (
+									<Answer
+										key={i}
+										text={choice}
+										select={selectAnswer}
+										selected={question.selectedAnswer == choice ? true : false}
+										reveal={true}
+										answer={question.correct}
+									/>
+								))}
+							</div>
+						</div>
+					))}
 				</div>
 			)}
 		</div>
