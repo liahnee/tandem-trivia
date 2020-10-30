@@ -1,0 +1,17 @@
+.answers {
+    cursor: pointer;
+}
+
+.highlight {
+    border: solid;
+    
+    &.incorrect {
+        border-color: red !important;
+    }
+
+}
+
+.correct {
+    border: solid green ;
+}
+

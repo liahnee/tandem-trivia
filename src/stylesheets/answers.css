@@ -1,0 +1,12 @@
+.answers {
+  cursor: pointer; }
+
+.highlight {
+  border: solid; }
+  .highlight.incorrect {
+    border-color: red !important; }
+
+.correct {
+  border: solid green; }
+
+/*# sourceMappingURL=answers.css.map */
