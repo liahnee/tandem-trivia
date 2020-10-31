@@ -4,8 +4,9 @@ import allQuestions from './Apprentice_TandemFor400_Data.json';
 import { useState, useEffect } from 'react';
 
 import Question from './components/question';
-import Answer from './components/answers';
+import Answer from './components/answer';
 import Score from './components/score';
+import Review from './components/review';
 
 function App() {
 	const [ score, setScore ] = useState(0);
@@ -18,15 +19,14 @@ function App() {
 	const [ showAnswerButton, setShowAnswerButton ] = useState(false);
 	const [ revealAnswer, setRevealAnswer ] = useState(false);
 
-  const [ questionCount, setQuestionCount ] = useState(0);
-  
+	const [ questionCount, setQuestionCount ] = useState(0);
 
 	useEffect(() => {
 		createQuestionList();
-  }, []);
-  
+	}, []);
+
 	const createQuestionList = () => {
-    setQuestionList(null);
+		setQuestionList(null);
 		const max = allQuestions.length - 1;
 		const tempIdx = [];
 		const tempList = [];
@@ -40,8 +40,8 @@ function App() {
 
 				const newQ = allQuestions[num];
 				newQ.selectedAnswer = null;
-        newQ.allChoices = [...newQ.incorrect];
-        newQ.allChoices.splice(randomInt(4), 0, newQ.correct);
+				newQ.allChoices = [ ...newQ.incorrect ];
+				newQ.allChoices.splice(randomInt(4), 0, newQ.correct);
 				tempList.push(newQ);
 				count++;
 			}
@@ -55,10 +55,6 @@ function App() {
 		setQuestion(pulledQuestion.question);
 		setAnswer(pulledQuestion.correct);
 
-		// const randAnswerChoices = pulledQuestion.incorrect;
-		// randAnswerChoices.splice(randomInt(4), 0, pulledQuestion.correct);
-    // setAnswerChoices(randAnswerChoices);
-    
 		setAnswerChoices(pulledQuestion.allChoices);
 
 		countQuestion();
@@ -90,15 +86,15 @@ function App() {
 			setSelectedAnswer(choice);
 		}
 		return;
-  };
-  
-  const countQuestion = () => {
-    setQuestionCount(questionCount + 1 )
-    return;
-  }
+	};
+
+	const countQuestion = () => {
+		setQuestionCount(questionCount + 1);
+		return;
+	};
 
 	const reset = () => {
-    createQuestionList();
+		createQuestionList();
 		setQuestionCount(0);
 		setQuestion(null);
 		setAnswerChoices(new Array());
@@ -109,21 +105,31 @@ function App() {
 		setRevealAnswer(false);
 
 		return;
-	};
+  };
+  
+  const startSession = () => {
+    countQuestion();
+    nextQuestion();
+    return;
+  };
 
-	return (
-		<div className="App">
-			{questionCount <= 10 ? (
+	const fakeRoute = () => {
+		if (questionCount == 0) {
+			return <button onClick={startSession}>Start</button>;
+		} else if (questionCount <= 10) {
+			return (
 				<div>
 					<Score score={score} />
 					{showAnswerButton ? (
 						<button onClick={showAnswer}>Confirm</button>
 					) : (
-            <div> 
-              {questionCount == 10 ? (<button onClick={countQuestion}>Complete</button>) : (
-						<button onClick={nextQuestion}> Next Question</button> )}
-
-            </div>
+						<div>
+							{questionCount == 10 ? (
+								<button onClick={countQuestion}>Complete</button>
+							) : (
+								<button onClick={nextQuestion}> Next Question</button>
+							)}
+						</div>
 					)}
 					<div className="question-container">
 						<Question text={question} count={questionCount} />
@@ -141,33 +147,14 @@ function App() {
 						</div>
 					</div>
 				</div>
-			) : (
-				<div>
-					You have completed 10 questions. Youre score is {score}/10.
-					<button onClick={reset}>New Round</button>
-					Review answers:
-          {console.log(questionList)}
-					{questionList.map((question, idx) => (
-						<div className="question-container" key={idx}>
-							<Question text={question.question} count={idx + 1} />
-							<div className="answers-container">
-								{question.allChoices.map((choice, i) => (
-									<Answer
-										key={i}
-										text={choice}
-										select={selectAnswer}
-										selected={question.selectedAnswer == choice ? true : false}
-										reveal={true}
-										answer={question.correct}
-									/>
-								))}
-							</div>
-						</div>
-					))}
-				</div>
-			)}
-		</div>
-	);
+			);
+		} else {
+			return <Review questionList={questionList} score={score} reset={reset} selectAnswer={selectAnswer}/>;
+		}
+	};
+
+	return <div className="App">{fakeRoute()}</div>;
+
 }
 
 const randomInt = (max) => {
