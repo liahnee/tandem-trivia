@@ -1,5 +1,5 @@
-import Question from './question';
-import Answer from './answer';
+import Question from '../components/question';
+import Answer from '../components/answer';
 
 const Review = (props) => {
 	return (

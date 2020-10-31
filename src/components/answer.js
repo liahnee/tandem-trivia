@@ -15,12 +15,10 @@ const Answer = props => {
     }
 
     return (
-        <div className={`answers ${selected} ${mark()}`} onClick={() => props.select(props.text)}>
-            <div>
+        <div data-testid={`answer-${props.idx}`} className={`answers ${selected} ${mark()}`} onClick={() => props.select(props.text)}>
                 {props.text}
-            </div>
         </div>
     )
-}
+};
 
 export default Answer;

@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import Question from './components/question';
 import Answer from './components/answer';
 import Score from './components/score';
-import Review from './components/review';
+import Review from './container/review';
 
 function App() {
 	const [ score, setScore ] = useState(0);
@@ -136,12 +136,13 @@ function App() {
 						<div className="answers-container">
 							{answerChoices.map((choice, i) => (
 								<Answer
-									key={i}
+                  key={i}
+                  idx={i}
 									text={choice}
 									select={selectAnswer}
 									selected={selectedAnswer == choice ? true : false}
 									reveal={revealAnswer}
-									answer={answer}
+                  answer={answer}
 								/>
 							))}
 						</div>

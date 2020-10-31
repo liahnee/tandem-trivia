@@ -6,7 +6,7 @@
     border: solid;
     
     &.incorrect {
-        border-color: red !important;
+        border: solid red;
     }
 
 }
