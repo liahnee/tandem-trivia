@@ -22,7 +22,7 @@ const Review = (props) => {
 			<p>Review answers</p>
 			<div className="review-qna">
 				{props.questionList.map((question, idx) => (
-					<div className="question-container" data-testid={`review-qa-container-${idx}`} key={idx}>
+					<div className="r-question-container" data-testid={`review-qa-container-${idx}`} key={idx}>
 						<Question text={question.question} count={idx + 1} />
 						<div className="answers-container">
 							{question.allChoices.map((choice, i) => (

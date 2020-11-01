@@ -4,7 +4,8 @@
 
 .question-count {
   text-align: start;
-  font-size: 1.4em; }
+  font-size: 1.4em;
+  padding: 5px; }
 
 .question-text {
   font-size: 1.8em; }

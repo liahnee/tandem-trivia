@@ -1,7 +1,8 @@
 .review {
   font-family: 'Source Code Pro', monospace;
-  font-size: 1em;
-  margin-bottom: 3em; }
+  font-size: 1.2em;
+  margin-bottom: 3em;
+  width: 70vw; }
 
 .review-header {
   font-size: 1.4rem;
@@ -30,10 +31,32 @@
 
 .review-qna {
   display: grid;
-  grid-row: 4;
-  font-size: 0.6em; }
+  grid-template-columns: repeat(3, 1fr);
+  font-size: 0.6em;
+  grid-gap: 5px; }
 
-.question-container {
+.r-question-container {
   margin: 2em 0; }
+
+@media screen and (max-width: 700px) {
+  .review {
+    width: 90%; }
+
+  .review-qna {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.6em; }
+
+  #reset {
+    margin-top: 0.2em; } }
+@media screen and (min-width: 1200px) {
+  .review {
+    width: 1000px; }
+
+  .review-qna {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    font-size: 0.6em;
+    grid-gap: 5px; } }
 
 /*# sourceMappingURL=review.css.map */

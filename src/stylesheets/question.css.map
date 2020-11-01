@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,SAAU;EACR,MAAM,EAAE,OAAO;EACf,WAAW,EAAE,mBAAmB;;AAGlC,eAAgB;EACd,UAAU,EAAE,KAAK;EACjB,SAAS,EAAE,KAAK;;AAGlB,cAAe;EACb,SAAS,EAAE,KAAK",
+"mappings": "AAAA,SAAU;EACR,MAAM,EAAE,OAAO;EACf,WAAW,EAAE,mBAAmB;;AAGlC,eAAgB;EACd,UAAU,EAAE,KAAK;EACjB,SAAS,EAAE,KAAK;EAChB,OAAO,EAAE,GAAG;;AAGd,cAAe;EACb,SAAS,EAAE,KAAK",
 "sources": ["../sass/question.scss"],
 "names": [],
 "file": "question.css"

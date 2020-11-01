@@ -16,9 +16,9 @@ $desktop: 1200px;
 .App-header {
     position: relative;
     width: 100vw;
-    margin-top:1em;
-    padding-top: 1em; 
-    padding-bottom: 0.5em;
+    margin-top:0.5em;
+    padding-top: 0.8em; 
+    padding-bottom: 0.4em;
     font-size: 4em;
     background: black;
     color: white;
@@ -74,13 +74,15 @@ $desktop: 1200px;
     justify-content: center;
     align-items: center;
     width: 70vw;
+
+    margin: 1em 0;
 }
 
 .qna {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 2em 1em 1em 1em;
+    padding: 0;
 }
 
 .question-container {
@@ -130,7 +132,7 @@ $desktop: 1200px;
     }
 };
 
-// phone
+// mobile view
 
 @media screen and (max-width: 700px) {
 
@@ -148,4 +150,12 @@ $desktop: 1200px;
 
 }
 
-// desktop
+// desktop view
+
+
+@media screen and (min-width: 1200px) {
+
+    .qna-container {
+        width: 1000px;
+    }
+}
