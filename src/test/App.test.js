@@ -1,12 +1,11 @@
 import { unmountComponentAtNode } from 'react-dom';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { act } from "react-dom/test-utils";
 
 import App from '../App';
 
 let container = null;
 beforeEach(() => {
-	// setup a DOM element as a render target
 	container = document.createElement('div');
 	document.body.appendChild(container);
 });
@@ -17,18 +16,7 @@ afterEach(() => {
 	container = null;
 });
 
-// beforeAll(done => {
-// 	done()
-//   })
-  
-//   afterAll(done => {
-// 	// Closing the DB connection allows Jest to exit successfully.
-// 	mongoose.connection.close()
-// 	done()
-//   })
-  
 
-//test renders start button
 it('start button rendered', () => {
 	act(() => {
 		render(<App />, container);
@@ -61,8 +49,25 @@ it('clicking a start button renders questions and answers', () => {
 	const firstAnswer = document.getElementById('answer-0');
 	expect(firstAnswer.innerText).not.toBe(null);
 });
-//clicking on the answer choice reveals correct answer
-//it()...
+
+it('when yet selected, clicking any answer choice reveals an answer', () => {
+	act(() => {
+		render(<App />, container);
+	});
+
+	const start = document.getElementById("start");
+	fireEvent.click(start);
+
+
+	const questionOne = document.getElementById("question-1").innerHTML;
+	const answer = document.getElementById('answer-2');
+	fireEvent.click(answer);
+
+	let correctAnswer = !!document.getElementsByClassName("correct") ? document.getElementsByClassName("correct") : null;
+
+	expect(correctAnswer).not.toBe(null);
+});
+
 
 it('clicking any answer choice renders next question set if clicked after the answer is revealed', () => {
 	act(() => {
@@ -74,7 +79,6 @@ it('clicking any answer choice renders next question set if clicked after the an
 
 
 	const questionOne = document.getElementById("question-1").innerHTML;
-	console.log("innerhtml", questionOne)
 	const skip = document.getElementById("skip");
 	fireEvent.click(skip);
 	const answer = document.getElementById('answer-2');
@@ -94,7 +98,6 @@ it('next button renders new questions and answers', () => {
 	fireEvent.click(start);
 
 	const questionOne = document.getElementById("question-1").innerHTML;
-	console.log("innerhtml", questionOne)
 	const skip = document.getElementById("skip");
 	fireEvent.click(skip);
 	const next = document.getElementById("next");
@@ -104,7 +107,6 @@ it('next button renders new questions and answers', () => {
 	expect(questionOne).not.toMatch(questionTwo);
 });
 
-//reset button
 it('reset button clears score and shows new start page', () => {
 
 	act(() => {

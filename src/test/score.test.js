@@ -2,7 +2,6 @@ import React from 'react';
 import Score from '../components/score';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { screen } from '@testing-library/react';
 
 let container = null;
 beforeEach(() => {

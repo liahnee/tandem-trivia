@@ -2,7 +2,6 @@ import React from 'react';
 import Answer from '../components/answer';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { screen } from '@testing-library/react';
 
 let container = null;
 beforeEach(() => {
@@ -34,25 +33,6 @@ it('renders an answer choice', () => {
     expect(answer).toHaveTextContent('One');
     expect(answer).toHaveClass('regular');
 });
-
-// it('renders highlighted answer choice when selected', () => {
-// 	const select = jest.fn();
-// 	const propData = {
-// 		idx: 1,
-// 		text: 'One',
-// 		selected: true,
-// 		select: select,
-// 		answer: 'One',
-// 		reveal: false
-// 	};
-// 	act(() => {
-// 		render(<Answer {...propData} />, container);
-// 	});
-
-// 	const answer = screen.getByTestId('answer-1');
-
-// 	expect(answer).toHaveClass('highlight');
-// });
 
 it('renders answer choice with correct class name when correct answer is revealed', () => {
 	const select = jest.fn();

@@ -42,15 +42,15 @@ it('renders total score', () => {
 		render(<Review {...propData} />, container);
 	});
 
-	const score = screen.getByTestId('review-score')
-    expect(score).toHaveTextContent('1/2');
+    const score = screen.getByText('1/2');
+    expect(score).not.toBe(null);
 });
 it('renders new round button', () => {
 	act(() => {
 		render(<Review {...propData} />, container);
 	});
 
-	const button = screen.getByText('New Round')
+	const button = document.getElementById('reset');
     expect(button).not.toBe(null);
 });
 it('renders previous questions and answers', () => {
@@ -58,7 +58,7 @@ it('renders previous questions and answers', () => {
 		render(<Review {...propData} />, container);
     });
     for (let i = 0; i < propData.questionList.length; i++ ) {
-        const questionSet = screen.getByTestId(`review-qa-container-${i}`);
+        const questionSet = document.getElementById(`review-qa-container-${i}`);
         expect(questionSet).not.toBe(null);
     };
 });

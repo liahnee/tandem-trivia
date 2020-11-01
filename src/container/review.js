@@ -6,23 +6,23 @@ import Answer from '../components/answer';
 const Review = (props) => {
 	return (
 		<div className="review">
-			<div data-testid="reset" id="reset" className="div-button" onClick={props.reset}>
+			<div id="reset" className="div-button" onClick={props.reset}>
 				New Round
 			</div>
 			<div className="review-header">
 				<p>You have completed 10 questions.</p>
 				<p>
 					Youre score is{' '}
-					<strong className="review-score" data-testid={'review-score'}>
+					<span className="review-score">
 						{props.score}/{props.questionList.length}
-					</strong>.
+					</span>.
 				</p>
 			</div>
 			<p>* * *</p>
 			<p>Review answers</p>
 			<div className="review-qna">
 				{props.questionList.map((question, idx) => (
-					<div className="r-question-container" data-testid={`review-qa-container-${idx}`} key={idx}>
+					<div className="r-question-container" id={`review-qa-container-${idx}`} key={idx}>
 						<Question text={question.question} count={idx + 1} />
 						<div className="answers-container">
 							{question.allChoices.map((choice, i) => (

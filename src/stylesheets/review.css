@@ -29,6 +29,9 @@
   border: solid #009b46;
   color: white; }
 
+.review-score {
+  font-weight: bold; }
+
 .review-qna {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

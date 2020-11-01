@@ -149,7 +149,6 @@ function App() {
 							<div>
 								{questionCount == 10 ? (
 									<div
-										data-testid="complete"
 										id="complete"
 										className="div-button"
 										onClick={countQuestion}
@@ -157,7 +156,7 @@ function App() {
 										Complete
 									</div>
 								) : (
-									<div data-testid="next" id="next" className="div-button" onClick={nextQuestion}>
+									<div id="next" className="div-button" onClick={nextQuestion}>
 										{' '}
 										Next Question
 									</div>
