@@ -72,8 +72,8 @@ Dependencies:  React: ^17.0.1
     * click an answer choice (while correct answer is showing)
     * click question button 
 * Live updates of the scores
-* Review previoius questions and answer choices for studying
-* Clickable buttons has changed background colors and pointer cursor on hover 
+* Review previous questions and answer choices for studying
+* Clickable buttons have changed background colors and pointer cursor on hover 
 * Consistent placement of header and score components 
 ### UI choices 
 * Clean, simple design
