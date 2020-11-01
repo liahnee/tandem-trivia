@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,QAAS;EACL,MAAM,EAAE,OAAO;;AAGnB,UAAW;EACP,MAAM,EAAE,KAAK;EAEb,oBAAY;IACR,MAAM,EAAE,SAAS;;AAKzB,QAAS;EACL,MAAM,EAAE,WAAY",
-"sources": ["../sass/answers.scss"],
-"names": [],
-"file": "answers.css"
-}

@@ -1,4 +1,12 @@
 .question {
-  cursor: default; }
+  cursor: default;
+  font-family: 'Cabin', sans-serif; }
+
+.question-count {
+  text-align: start;
+  font-size: 1.4em; }
+
+.question-text {
+  font-size: 1.8em; }
 
 /*# sourceMappingURL=question.css.map */

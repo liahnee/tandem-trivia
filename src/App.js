@@ -72,7 +72,6 @@ function App() {
 	const showAnswer = () => {
 		if (selectedAnswer == answer) {
 			setScore(score + 1);
-			console.log('answer');
 		}
 		setShowAnswerButton(false);
 		setRevealAnswer(true);
@@ -105,57 +104,82 @@ function App() {
 		setRevealAnswer(false);
 
 		return;
-  };
-  
-  const startSession = () => {
-    countQuestion();
-    nextQuestion();
-    return;
-  };
+	};
+
+	const startSession = () => {
+		countQuestion();
+		nextQuestion();
+		return;
+	};
 
 	const fakeRoute = () => {
 		if (questionCount == 0) {
-			return <button data-testid="start" onClick={startSession}>Start</button>;
-		} else if (questionCount <= 10) {
 			return (
 				<div>
+					<div id="start-bg"/>
+					<div data-testid="start" id="start" className="div-button" onClick={startSession}>
+						START
+					</div>
+				</div>
+			);
+		} else if (questionCount <= 10) {
+			return (
+				<div className="qna-container">
 					<Score score={score} />
-					{showAnswerButton ? (
-						<button data-testid='confirm' onClick={showAnswer}>Confirm</button>
-					) : (
-						<div>
-							{questionCount == 10 ? (
-								<button data-testid="complete" onClick={countQuestion}>Complete</button>
-							) : (
-								<button data-testid="next" onClick={nextQuestion}> Next Question</button>
-							)}
+					<div className="qna">
+						<div className="question-container">
+							<Question text={question} count={questionCount} />
 						</div>
-					)}
-					<div className="question-container">
-						<Question text={question} count={questionCount} />
 						<div className="answers-container">
 							{answerChoices.map((choice, i) => (
 								<Answer
-                  key={i}
-                  idx={i}
+									key={i}
+									idx={i}
 									text={choice}
 									select={selectAnswer}
 									selected={selectedAnswer == choice ? true : false}
 									reveal={revealAnswer}
-                  answer={answer}
+									answer={answer}
 								/>
 							))}
 						</div>
+						{showAnswerButton ? (
+							<div data-testid="confirm" id="confirm" className="div-button" onClick={showAnswer}>
+								Confirm
+							</div>
+						) : (
+							<div>
+								{questionCount == 10 ? (
+									<div
+										data-testid="complete"
+										id="complete"
+										className="div-button"
+										onClick={countQuestion}
+									>
+										Complete
+									</div>
+								) : (
+									<div data-testid="next" id="next" className="div-button" onClick={nextQuestion}>
+										{' '}
+										Next Question
+									</div>
+								)}
+							</div>
+						)}
 					</div>
 				</div>
 			);
 		} else {
-			return <Review questionList={questionList} score={score} reset={reset} selectAnswer={selectAnswer}/>;
+			return <Review questionList={questionList} score={score} reset={reset} selectAnswer={selectAnswer} />;
 		}
 	};
 
-	return <div className="App">{fakeRoute()}</div>;
-
+	return (
+		<div className="App">
+			<header className="App-header"><span id="tandem-text">tandem</span> Trivia</header>
+			{fakeRoute()}
+		</div>
+	);
 }
 
 const randomInt = (max) => {

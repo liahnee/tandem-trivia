@@ -1,0 +1,27 @@
+.answers {
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1.6em;
+  padding: 8px;
+  font-family: 'Ubuntu', sans-serif;
+  border: solid transparent; }
+
+.choices:hover {
+  background-color: lightblue; }
+
+.highlight {
+  border: solid; }
+  .highlight.incorrect {
+    background-color: #dd8989;
+    color: white;
+    border: solid #dd8989; }
+
+.correct {
+  background-color: #7fcf86;
+  color: white;
+  border: solid #7fcf86; }
+
+.correct:hover {
+  background-color: #7fcf86; }
+
+/*# sourceMappingURL=answer.css.map */

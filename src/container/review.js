@@ -1,18 +1,26 @@
+import '../stylesheets/review.css';
+
 import Question from '../components/question';
 import Answer from '../components/answer';
 
 const Review = (props) => {
 	return (
-		<div className='review'>
+		<div className="review">
+			<div data-testid="reset" id="reset" className="div-button" onClick={props.reset}>
+				New Round
+			</div>
 			<div className="review-header">
-				You have completed 10 questions. 
+				<p>You have completed 10 questions.</p>
+				<p>
+					Youre score is{' '}
+					<strong className="review-score" data-testid={'review-score'}>
+						{props.score}/{props.questionList.length}
+					</strong>.
+				</p>
 			</div>
-			<div >
-				Youre score is <span className="review-score" data-testid={'review-score'}>{props.score}/{props.questionList.length}</span>.
-			</div>
-			<button data-testid="reset" onClick={props.reset}>New Round</button>
-			<div>
-				Review answers:
+			<p>* * *</p>
+			<p>Review answers</p>
+			<div className="review-qna">
 				{props.questionList.map((question, idx) => (
 					<div className="question-container" data-testid={`review-qa-container-${idx}`} key={idx}>
 						<Question text={question.question} count={idx + 1} />

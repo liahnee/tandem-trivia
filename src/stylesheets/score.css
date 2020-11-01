@@ -1,3 +1,16 @@
+.score {
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.4em;
+  width: 6em;
+  padding: 2em; }
 
+#score-text {
+  border-bottom: solid black;
+  margin: 5px;
+  padding: 10px; }
+
+#score-value {
+  margin: 5px;
+  padding: 10px; }
 
 /*# sourceMappingURL=score.css.map */

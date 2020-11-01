@@ -1,0 +1,38 @@
+
+$correct-color: rgb(127, 207, 134);
+$incorrect-color: rgb(221, 137, 137);
+
+.answers {
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 1.6em;
+    padding: 8px;
+    font-family: 'Ubuntu', sans-serif;
+    border: solid transparent;
+}
+
+.choices:hover {
+    background-color: lightblue;
+}
+
+.highlight {
+    border: solid;
+    
+    &.incorrect {
+        background-color: $incorrect-color;
+        color:white;
+        border: solid $incorrect-color;
+    }
+
+}
+
+
+.correct {
+    background-color: $correct-color;
+    color:white;
+    border: solid $correct-color;
+}
+
+.correct:hover {
+    background-color: $correct-color; 
+}

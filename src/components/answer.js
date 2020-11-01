@@ -1,21 +1,24 @@
-import '../stylesheets/answers.css';
+import '../stylesheets/answer.css';
 
 const Answer = props => {
 
-    const selected = props.selected ? "highlight" : "regular"; 
-
     const mark = () => {
+        const classname = 'answers';
+        const selected = props.selected ? "highlight" : "regular"; 
+        let reveal = new String;
 
         if (props.reveal && props.answer == props.text ) {
-            return 'correct'
+            reveal = 'correct';
+        } else if (props.reveal && props.answer !== props.text ) {
+            reveal = 'incorrect';
+        } else {
+            reveal = 'choices';
         };
-        if (props.reveal) {
-            return 'incorrect'
-        };
+        return classname + ' ' + selected + ' ' + reveal;
     }
 
     return (
-        <div data-testid={`answer-${props.idx}`} className={`answers ${selected} ${mark()}`} onClick={() => props.select(props.text)}>
+        <div data-testid={`answer-${props.idx}`} className={mark()} onClick={() => props.select(props.text)}>
                 {props.text}
         </div>
     )

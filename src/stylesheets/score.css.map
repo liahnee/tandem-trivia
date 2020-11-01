@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AACA,MAAO;EACH,WAAW,EAAE,mBAAmB;EAChC,SAAS,EAAE,KAAK;EAChB,KAAK,EAAE,GAAG;EACV,OAAO,EAAE,GAAG;;AAEhB,WAAY;EACR,aAAa,EAAE,WAAW;EAC1B,MAAM,EAAG,GAAG;EACZ,OAAO,EAAE,IAAI;;AAEjB,YAAa;EACT,MAAM,EAAG,GAAG;EACZ,OAAO,EAAE,IAAI",
+"sources": ["../sass/score.scss"],
 "names": [],
 "file": "score.css"
 }

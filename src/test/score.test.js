@@ -23,7 +23,7 @@ it('renders a score', () => {
 	});
 
 	const scoreText = screen.getByTestId('score');
-    expect(scoreText).toHaveTextContent('Score:');
+    expect(scoreText).toHaveTextContent('Score');
 	const scoreValue = screen.getByTestId('score-value');
     expect(scoreValue).toHaveTextContent('1');
 });

@@ -1,38 +1,112 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  cursor: default;
+  overflow-x: hidden;
+  position: relative;
+  align-items: center; }
+
+.App-header {
+  position: relative;
+  width: 100vw;
+  margin-top: 1em;
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  font-size: 4em;
+  background: black;
   color: white;
-}
+  z-index: 1;
+  font-family: 'Overlock SC', cursive;
+  font-weight: 500; }
 
-.App-link {
-  color: #61dafb;
-}
+#tandem-text {
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 2px; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+#start-bg {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: black;
+  padding-top: 2em;
+  min-height: 60vh;
+  z-index: 0; }
+
+#start {
+  width: 40vw;
+  position: absolute;
+  top: 60vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  font-size: 3em;
+  font-weight: 600;
+  color: white;
+  background-color: grey;
+  padding: 0.3em; }
+
+#start:hover {
+  background-color: lightblue; }
+
+.qna-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 70vw; }
+
+.qna {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 2em 1em 1em 1em; }
+
+.question-container {
+  margin: 0; }
+
+.answers-container {
+  display: grid;
+  grid-row: 2;
+  width: 100%; }
+
+.div-button {
+  cursor: pointer;
+  font-family: 'Cabin', sans-serif;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #363636; }
+
+.div-button:hover {
+  background-color: lightseagreen;
+  color: white; }
+
+#confirm, #complete, #next {
+  box-sizing: border-box;
+  padding: 1em;
+  width: 100%;
+  min-height: 120%;
+  margin-top: 3em; }
+
+@media screen and (max-height: 600px) {
+  .App-header {
+    display: none; }
+
+  .question-container {
+    margin-top: 2vh; } }
+@media screen and (max-width: 700px) {
+  .App-header {
+    width: 100vw;
+    margin-top: 0.5em;
+    padding: 0.5em;
+    font-size: 1em;
+    background: black;
+    color: white; }
+
+  .qna-container {
+    flex-direction: column; } }
+
+/*# sourceMappingURL=App.css.map */

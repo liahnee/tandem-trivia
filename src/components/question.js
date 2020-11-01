@@ -6,7 +6,7 @@ const question = props => {
 
     return (
         <div className="question" data-testid={`question-${props.count}`} name={`question-${props.count}`}>
-            {props.count > 0? <p>Question {props.count}. {props.text}</p> : null }
+            {props.count > 0? <div><p className="question-count">Question {props.count} </p><p className="question-text">{props.text}</p></div> : null }
         </div>
     )
 };
