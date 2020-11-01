@@ -25,8 +25,8 @@ Acceptance Criteria
 To run/test the app:
 1. git clone repo
 2. npm install
-3. npm test 
-4. npm start  
+3. npm test (Or just to start npm start)
+4. npm start
 
 Dependencies:  React: ^17.0.1
 - - - -
