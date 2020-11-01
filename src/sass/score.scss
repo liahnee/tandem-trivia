@@ -14,3 +14,12 @@
     margin:  5px;
     padding: 10px;
 }
+
+
+@media screen and (max-width: 700px) {
+    .score {
+        margin:0 auto;
+        padding: 0.5em;
+
+    }
+}

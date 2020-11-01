@@ -118,12 +118,6 @@ $bg-color: #f5f5dc9f;
     margin:0;
 }
 
-.answers-container {
-    display: grid;
-    grid-row: 2;
-    width: 100%;
-}
-
 
 // div buttons
 
@@ -144,7 +138,6 @@ $bg-color: #f5f5dc9f;
     box-sizing: border-box;
     padding: 1em;
     width: 100%; 
-    min-height: 120%; 
     margin-top: 3em;
 }
 
@@ -174,22 +167,18 @@ $bg-color: #f5f5dc9f;
     .qna-container {
         flex-direction: column;
         padding-top: 4em;
+        justify-content: start;
     }
 
     .score-wrapper {
         min-height: auto;
-    }
-    .score {
-        margin-top: 1rem;
+        margin: auto;
     }
 
-    .question-count, .question-text {
-        font-size: 1.2em;
+    .answers-container {
+        min-height: 10em;
     }
-    .answers {
-        font-size: 1.4em !important;
-        padding: 2px !important;
-    }
+    
 
     .div-button {
         min-height: auto;

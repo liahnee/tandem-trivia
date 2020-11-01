@@ -24,4 +24,9 @@
 .correct:hover {
   background-color: #7fcf86; }
 
+@media screen and (max-width: 700px) {
+  .answers {
+    font-size: 1.2em;
+    padding: 2px; } }
+
 /*# sourceMappingURL=answer.css.map */

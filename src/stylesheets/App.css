@@ -91,11 +91,6 @@
 .question-container {
   margin: 0; }
 
-.answers-container {
-  display: grid;
-  grid-row: 2;
-  width: 100%; }
-
 .div-button {
   cursor: pointer;
   font-family: 'Cabin', sans-serif;
@@ -111,7 +106,6 @@
   box-sizing: border-box;
   padding: 1em;
   width: 100%;
-  min-height: 120%;
   margin-top: 3em; }
 
 @media screen and (max-height: 660px) {
@@ -129,20 +123,15 @@
 
   .qna-container {
     flex-direction: column;
-    padding-top: 4em; }
+    padding-top: 4em;
+    justify-content: start; }
 
   .score-wrapper {
-    min-height: auto; }
+    min-height: auto;
+    margin: auto; }
 
-  .score {
-    margin-top: 1rem; }
-
-  .question-count, .question-text {
-    font-size: 1.2em; }
-
-  .answers {
-    font-size: 1.4em !important;
-    padding: 2px !important; }
+  .answers-container {
+    min-height: 10em; }
 
   .div-button {
     min-height: auto; }
