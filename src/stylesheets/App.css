@@ -145,7 +145,10 @@
     padding: 2px !important; }
 
   .div-button {
-    min-height: auto; } }
+    min-height: auto; }
+
+  #start {
+    width: 5em; } }
 @media screen and (min-width: 1200px) {
   .qna-container {
     width: 1000px; } }
