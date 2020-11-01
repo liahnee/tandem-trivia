@@ -115,19 +115,19 @@ function App() {
 
 	const fakeRoute = () => {
 		if (questionCount == 0) {
-			return <button onClick={startSession}>Start</button>;
+			return <button data-testid="start" onClick={startSession}>Start</button>;
 		} else if (questionCount <= 10) {
 			return (
 				<div>
 					<Score score={score} />
 					{showAnswerButton ? (
-						<button onClick={showAnswer}>Confirm</button>
+						<button data-testid='confirm' onClick={showAnswer}>Confirm</button>
 					) : (
 						<div>
 							{questionCount == 10 ? (
-								<button onClick={countQuestion}>Complete</button>
+								<button data-testid="complete" onClick={countQuestion}>Complete</button>
 							) : (
-								<button onClick={nextQuestion}> Next Question</button>
+								<button data-testid="next" onClick={nextQuestion}> Next Question</button>
 							)}
 						</div>
 					)}

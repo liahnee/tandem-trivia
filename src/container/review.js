@@ -10,7 +10,7 @@ const Review = (props) => {
 			<div >
 				Youre score is <span className="review-score" data-testid={'review-score'}>{props.score}/{props.questionList.length}</span>.
 			</div>
-			<button onClick={props.reset}>New Round</button>
+			<button data-testid="reset" onClick={props.reset}>New Round</button>
 			<div>
 				Review answers:
 				{props.questionList.map((question, idx) => (
