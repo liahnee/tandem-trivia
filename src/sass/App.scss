@@ -78,13 +78,13 @@ $desktop: 1200px;
     top: 0;
     left: auto;
     right: auto;
-    padding-top: 6em;
+    padding-top: 8rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 70vw;
-    margin: 1em 0;
+    height: calc(100% - 8rem);
 }
 
 .qna {
@@ -98,7 +98,7 @@ $desktop: 1200px;
     position: relative;
     min-width: 10rem;
     padding: 0;
-    min-height: calc(100vh - 6em);
+    min-height: 100%;
 }
 
 .score {
@@ -144,7 +144,7 @@ $desktop: 1200px;
 
 // small height
 
-@media screen and (max-height: 600px) {
+@media screen and (max-height: 660px) {
     .App-header {
         display: none;
     }
