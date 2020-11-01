@@ -29,10 +29,11 @@ const Review = (props) => {
 								<Answer
 									key={i}
 									text={choice}
-									select={props.selectAnswer}
 									selected={question.selectedAnswer == choice ? true : false}
 									reveal={true}
 									answer={question.correct}
+									review={true}
+									idx={i}
 								/>
 							))}
 						</div>

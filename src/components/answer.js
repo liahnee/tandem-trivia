@@ -3,7 +3,10 @@ import '../stylesheets/answer.css';
 const Answer = props => {
 
     const mark = () => {
-        const classname = 'answers';
+        let classname = 'answers';
+        if (props.review) {
+            classname = 'answers answers-in-review'
+        };
         const selected = props.selected ? "highlight" : "regular"; 
         let reveal = new String;
 
@@ -18,6 +21,9 @@ const Answer = props => {
     }
 
     const clickAnswer = () =>{
+        if (props.review) {
+            return;
+        }
         if (props.reveal) {
             if (props.count < 10 ) {
                 props.nextQuestion();
