@@ -58,10 +58,15 @@ $desktop: 1200px;
     color: white;
     background-color: grey;
     padding:0.3em;
+    box-sizing: border-box;
+    border: solid grey;
 }
 
 #start:hover {
-    background-color: lightblue;
+    box-sizing: border-box;
+    background-color: black;
+    border: solid lightblue;
+    color: lightblue;
 }
 
 
@@ -69,12 +74,16 @@ $desktop: 1200px;
 
 
 .qna-container {
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: auto;
+    padding-top: 6em;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: 70vw;
-
     margin: 1em 0;
 }
 
@@ -83,6 +92,18 @@ $desktop: 1200px;
     flex-direction: column;
     width: 100%;
     padding: 0;
+}
+
+.score-wrapper {
+    position: relative;
+    min-width: 10rem;
+    padding: 0;
+    min-height: calc(100vh - 6em);
+}
+
+.score {
+    margin-top: 30vh;
+    left: 0;
 }
 
 .question-container {
@@ -111,7 +132,7 @@ $desktop: 1200px;
     color: white;
 }
 
-#confirm, #complete, #next {
+#skip, #complete, #next {
     box-sizing: border-box;
     padding: 1em;
     width: 100%; 

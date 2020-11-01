@@ -69,21 +69,14 @@ function App() {
 		return;
 	};
 
-	const showAnswer = () => {
-		if (selectedAnswer == answer) {
+	const showAnswer = (choice) => {
+		if (choice == answer) {
 			setScore(score + 1);
 		}
 		setShowAnswerButton(false);
 		setRevealAnswer(true);
-		questionList[questionCount - 1].selectedAnswer = selectedAnswer;
-		return;
-	};
-
-	const selectAnswer = (choice) => {
-		if (!revealAnswer) {
-			// cannot change answer while answer is being shown
-			setSelectedAnswer(choice);
-		}
+		questionList[questionCount - 1].selectedAnswer = choice;
+		setSelectedAnswer(choice);
 		return;
 	};
 
@@ -116,8 +109,8 @@ function App() {
 		if (questionCount == 0) {
 			return (
 				<div>
-					<div id="start-bg"/>
-					<div data-testid="start" id="start" className="div-button" onClick={startSession}>
+					<div id="start-bg" />
+					<div id="start" className="div-button" onClick={startSession}>
 						START
 					</div>
 				</div>
@@ -125,7 +118,9 @@ function App() {
 		} else if (questionCount <= 10) {
 			return (
 				<div className="qna-container">
-					<Score score={score} />
+					<div className="score-wrapper">
+						<Score score={score} />
+					</div>
 					<div className="qna">
 						<div className="question-container">
 							<Question text={question} count={questionCount} />
@@ -136,16 +131,19 @@ function App() {
 									key={i}
 									idx={i}
 									text={choice}
-									select={selectAnswer}
+									showAnswer={showAnswer}
 									selected={selectedAnswer == choice ? true : false}
 									reveal={revealAnswer}
 									answer={answer}
+									nextQuestion={nextQuestion}
+									complete={countQuestion}
+									count={questionCount}
 								/>
 							))}
 						</div>
 						{showAnswerButton ? (
-							<div data-testid="confirm" id="confirm" className="div-button" onClick={showAnswer}>
-								Confirm
+							<div id="skip" className="div-button" onClick={showAnswer}>
+								Skip
 							</div>
 						) : (
 							<div>
@@ -170,13 +168,15 @@ function App() {
 				</div>
 			);
 		} else {
-			return <Review questionList={questionList} score={score} reset={reset} selectAnswer={selectAnswer} />;
+			return <Review questionList={questionList} score={score} reset={reset} selectAnswer={showAnswer} />;
 		}
 	};
 
 	return (
 		<div className="App">
-			<header className="App-header"><span id="tandem-text">tandem</span> Trivia</header>
+			<header className="App-header">
+				<span id="tandem-text">tandem</span> Trivia
+			</header>
 			{fakeRoute()}
 		</div>
 	);

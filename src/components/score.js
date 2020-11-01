@@ -4,7 +4,7 @@ const Score = props => {
 
     return (
         <div className="score">
-            <p id="score-text">Score</p><p data-testid="score-value" id="score-value">{props.score}</p>
+            <p id="score-text">Score</p><p id="score-value">{props.score}</p>
         </div>
     )
 };

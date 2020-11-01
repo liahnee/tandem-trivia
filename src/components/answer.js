@@ -17,8 +17,20 @@ const Answer = props => {
         return classname + ' ' + selected + ' ' + reveal;
     }
 
+    const clickAnswer = () =>{
+        if (props.reveal) {
+            if (props.count < 10 ) {
+                props.nextQuestion();
+            } else {
+                props.complete();
+            }
+        } else {
+            props.showAnswer(props.text);
+        }
+    }
+
     return (
-        <div data-testid={`answer-${props.idx}`} className={mark()} onClick={() => props.select(props.text)}>
+        <div id={`answer-${props.idx}`} className={mark()} onClick={clickAnswer}>
                 {props.text}
         </div>
     )

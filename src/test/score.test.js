@@ -22,8 +22,8 @@ it('renders a score', () => {
 		render(<Score score={1} />, container);
 	});
 
-	const scoreText = screen.getByTestId('score');
+	const scoreText = document.getElementById('score-text');
     expect(scoreText).toHaveTextContent('Score');
-	const scoreValue = screen.getByTestId('score-value');
+	const scoreValue = document.getElementById('score-value');
     expect(scoreValue).toHaveTextContent('1');
 });

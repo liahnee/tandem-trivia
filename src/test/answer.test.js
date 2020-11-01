@@ -30,29 +30,30 @@ it('renders an answer choice', () => {
 		render(<Answer {...propData} />, container);
 	});
 
-	const answer = document.querySelector('[data-testid=answer-1]');
+	const answer = document.getElementById('answer-1');
     expect(answer).toHaveTextContent('One');
     expect(answer).toHaveClass('regular');
 });
 
-it('renders highlighted answer choice when selected', () => {
-	const select = jest.fn();
-	const propData = {
-		idx: 1,
-		text: 'One',
-		selected: true,
-		select: select,
-		answer: 'One',
-		reveal: false
-	};
-	act(() => {
-		render(<Answer {...propData} />, container);
-	});
+// it('renders highlighted answer choice when selected', () => {
+// 	const select = jest.fn();
+// 	const propData = {
+// 		idx: 1,
+// 		text: 'One',
+// 		selected: true,
+// 		select: select,
+// 		answer: 'One',
+// 		reveal: false
+// 	};
+// 	act(() => {
+// 		render(<Answer {...propData} />, container);
+// 	});
 
-	const answer = screen.getByTestId('answer-1');
+// 	const answer = screen.getByTestId('answer-1');
 
-	expect(answer).toHaveClass('highlight');
-});
+// 	expect(answer).toHaveClass('highlight');
+// });
+
 it('renders answer choice with correct class name when correct answer is revealed', () => {
 	const select = jest.fn();
 	const propData = {
@@ -67,10 +68,11 @@ it('renders answer choice with correct class name when correct answer is reveale
 		render(<Answer {...propData} />, container);
 	});
 
-	const answer = document.querySelector('[data-testid=answer-1]');
+	const answer = document.getElementById('answer-1');
 
 	expect(answer).toHaveClass('correct');
 });
+
 it('renders answer choice with incorrect class name incorrect selected answer is revealed', () => {
 	const select = jest.fn();
 	const propData = {
@@ -85,6 +87,8 @@ it('renders answer choice with incorrect class name incorrect selected answer is
 		render(<Answer {...propData} />, container);
 	});
 
-	const answer = document.querySelector('[data-testid=answer-1]');
+	const answer = document.getElementById('answer-1');
 	expect(answer).toHaveClass('incorrect')
 });
+
+
