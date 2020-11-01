@@ -118,6 +118,10 @@ $bg-color: #f5f5dc9f;
     margin:0;
 }
 
+.answers-container {
+    min-height: 13em;
+}
+
 
 // div buttons
 
@@ -153,6 +157,18 @@ $bg-color: #f5f5dc9f;
         margin-top: 2vh;
     }
 };
+
+// tall height 
+@media screen and (min-height: 800px) {
+    .App-header {
+        display: none;
+    }
+    .qna-container {
+        padding-top: 12em;
+        height: calc(100vh - 12em);
+    }
+};
+
 
 // mobile view
 
