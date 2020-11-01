@@ -17,17 +17,17 @@
   padding: 8px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: -0.8em;
+  margin-top: -0.6em;
   color: white;
-  background: grey;
+  background-color: #2c8d80;
   z-index: 5;
   border: solid transparent; }
 
 #reset:hover {
   box-sizing: border-box;
-  background-color: black;
-  border: solid lightblue;
-  color: lightblue; }
+  background-color: #009b46;
+  border: solid #009b46;
+  color: white; }
 
 .review-qna {
   display: grid;
@@ -41,6 +41,9 @@
 .answers-in-review {
   cursor: default; }
 
+@media screen and (max-height: 660px) {
+  #reset {
+    margin-top: 2em; } }
 @media screen and (max-width: 700px) {
   .review {
     width: 90%; }

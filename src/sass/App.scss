@@ -2,6 +2,8 @@ $phone: 700px;
 $tablet: 900px;
 $desktop: 1200px; 
 
+$bg-color: #f5f5dc9f;
+
 .App {
     text-align: center;
     min-height: 100vh;
@@ -20,8 +22,10 @@ $desktop: 1200px;
     padding-top: 0.8em; 
     padding-bottom: 0.4em;
     font-size: 4em;
-    background: black;
-    color: white;
+    background: $bg-color;
+
+    // color: rgb(53, 20, 129);
+    color: rgb(9, 29, 20);
     z-index: 1;
     font-family: 'Overlock SC', cursive;
     font-weight: 500;
@@ -40,11 +44,14 @@ $desktop: 1200px;
     top: 0;
     left: 0;
     width: 100vw;
-    background-color: black;
+    background-image: url('../bg.png');
+    background-size: cover;
+    background-position: center;
     padding-top: 2em;
     min-height: 60vh;
     z-index: 0;
 }
+
 
 #start {
     width: 40vw;
@@ -56,17 +63,17 @@ $desktop: 1200px;
     font-size: 3em;
     font-weight: 600;
     color: white;
-    background-color: grey;
+    background-color: rgb(44, 141, 128);
     padding:0.3em;
     box-sizing: border-box;
-    border: solid grey;
+    border: solid transparent;
 }
 
 #start:hover {
     box-sizing: border-box;
-    background-color: black;
-    border: solid lightblue;
-    color: lightblue;
+    background-color: salmon;
+    border: solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 
 
@@ -93,6 +100,7 @@ $desktop: 1200px;
     width: 100%;
     padding: 0;
 }
+
 
 .score-wrapper {
     position: relative;

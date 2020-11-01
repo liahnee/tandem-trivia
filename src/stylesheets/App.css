@@ -15,8 +15,8 @@
   padding-top: 0.8em;
   padding-bottom: 0.4em;
   font-size: 4em;
-  background: black;
-  color: white;
+  background: #f5f5dc9f;
+  color: #091d14;
   z-index: 1;
   font-family: 'Overlock SC', cursive;
   font-weight: 500; }
@@ -31,7 +31,9 @@
   top: 0;
   left: 0;
   width: 100vw;
-  background-color: black;
+  background-image: url("../bg.png");
+  background-size: cover;
+  background-position: center;
   padding-top: 2em;
   min-height: 60vh;
   z-index: 0; }
@@ -46,16 +48,16 @@
   font-size: 3em;
   font-weight: 600;
   color: white;
-  background-color: grey;
+  background-color: #2c8d80;
   padding: 0.3em;
   box-sizing: border-box;
-  border: solid grey; }
+  border: solid transparent; }
 
 #start:hover {
   box-sizing: border-box;
-  background-color: black;
-  border: solid lightblue;
-  color: lightblue; }
+  background-color: salmon;
+  border: solid white;
+  color: white; }
 
 .qna-container {
   position: absolute;

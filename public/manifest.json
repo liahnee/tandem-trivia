@@ -3,9 +3,9 @@
   "name": "Trivia",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "logo_small.png",
+      "sizes": "500 x 500",
+      "type": "image"
     }
   ],
   "start_url": ".",
