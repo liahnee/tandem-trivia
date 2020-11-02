@@ -63,6 +63,8 @@ Dependencies:  React: ^17.0.1
 The app has three components mix matched in App.js or review.js. App is either rendering the start button, the three components, or the review container, which hold the same two of the three components in different format. 
 ### Test
 UI component tests are written with react testing library and jest that comes with create-react-app(CRA). Each of the component -question, answer, and score- test checks whether the component renders DOM correctly with given props. The App and review tests mostly checks on whether the functionalities, such as clicking on a button, will render the changed components correctly. As the app is very dynamic with random questions, test mostly finds the element through element id rather than its text.
+### Test Run 
+Verified deployed UI on Mac 14 in, Galaxy S9, Galaxy S5, Pixel2, and display resolution 1920 x 1080. 
 ### Routes    
 The app has three different views: start page, question page, and review page. The review page was the only container component used. Because the current useStates already had enough data to determine which components to render, I decided to place the components into a function rather than adding routes. I normally use react-router-dom for apps with more components and pages.
 ### State  
