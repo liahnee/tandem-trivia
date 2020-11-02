@@ -12,7 +12,7 @@ const Review = (props) => {
 			<div className="review-header">
 				<p>You have completed 10 questions.</p>
 				<p>
-					Youre score is{' '}
+					Your score is{' '}
 					<span className="review-score">
 						{props.score}/{props.questionList.length}
 					</span>.

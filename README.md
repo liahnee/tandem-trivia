@@ -77,7 +77,7 @@ The App container mostly hold only one level of children for questions and answe
 ![start page](src/pictures/tt_mobile_qna.png "Tandem Trivia")
 ![start page](src/pictures/tt_mobile_review.png "Tandem Trivia")
 ### Test Run 
-Verified deployed UI on Mac 14 in, Galaxy S9, Galaxy S5, Pixel2, and display resolution 1920 x 1080. 
+Verified deployed UI on Mac 14 in, Galaxy S9, Galaxy S5, Pixel2, and display resolution 1920 x 1080
 ### UX choices 
 * User has two methods to see the answer
     * click an answer choice
